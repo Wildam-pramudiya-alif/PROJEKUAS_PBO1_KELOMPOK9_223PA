@@ -1,21 +1,17 @@
-## Final Proyek Pemrograman Berorientasi Obyek 1
----
+# Final Proyek Pemrograman Berorientasi Obyek 1
 - Mata Kuliah: Pemrograman Berorientasi Obyek 1
  - Dosen Pengampu: Muhammad Ikhwan Fathulloh
-#### Kelompok
----
+## Kelompok
 - Kelompok: 9
 - Proyek: Aplikasi Booking Gor
 - Anggota:
   - Ketua    : Luthfy Arief
   - Anggota 1: Fauzi Rikhshana
   - Anggota 2: Wildam Pramudiya Alif 
-#### Judul Studi Kasus
----
+## Judul Studi Kasus
 Studi Kasus Pembuatan Aplikasi Booking GOR untuk Meningkatkan Efisiensi Pengelolaan GOR
 
-#### Penjelasan Studi Kasus
----
+## Penjelasan Studi Kasus
 Dalam studi kasus ini, kita akan membuat aplikasi Booking GOR untuk mempermudah pengelolaan gor dan proses pembookingan yang didalamnya ada 2 user, yaitu admin dan user(si pembooking), pada menu admin akan ada proses login terlebih dahulu, dimana dimenu login, admin akan mengisi username dan pasword yang telah kita buat dan disimpan di table Users pada database coba_gor. Setellah admin memasukkan username dan pasword dengan benar maka akan beralih ke menu selanjutnya, dimenu selanjutnya akan ada 4 menu, yaitu:
 1. Kelola Jadwal
    Pada menu ini, memungkinkan admin untuk melihat jadwal pembooking yangstatusnya booking dalam artian tahap pemesanan yang sedang berlangsung.Di sini admin bisa 
@@ -47,8 +43,7 @@ akan ada 5 opsi pemilihan booking dan 1 tombol untuk melihat jadwal booking yang
 
 Setelah semua opsi sudah dipilih, maka si pembooking tinggal menekan tombol booking yang nantinya akan muncul notifikasi mengenai data bookingnya beserta jumlah harga bookingnya. di situ juga akan muncul pesan bahwa jika melakukan pembayaran maka bukti pembayarannya dikirim melalui WA yang tertera, dan jika melakukan pembayaran secara cash maka disitu juga muncul pesan untuk menyimpan data bookingnya yang bertujuan untuk bukti sudah melakukan booking.
 
-#### Penjelasan 4 Pilar OOP dalam Studi Kasus
----
+## Penjelasan 4 Pilar OOP dalam Studi Kasus
 #### 1. Inheritance
 - ##### Definisi
   Inheritance adalah konsep di mana sebuah kelas (subclass) dapat mewarisi atribut dan method dari kelas lain (superclass). Dengan cara ini, kita bisa menulis satu bagian kode yang bisa dipakai berulang kali (reusable) di banyak tempat, dan juga membuat hubungan antar kelas yang jelas, misalnya mana kelas yang jadi 'induk' dan mana yang jadi 'turunan'. Sehingga, kode kita jadi lebih rapi dan mudah dipahami.
@@ -125,8 +120,7 @@ Setelah semua opsi sudah dipilih, maka si pembooking tinggal menekan tombol book
   Dengan mengelompokkan fungsi-fungsi tertentu ke dalam method yang terpisah, program menjadi lebih mudah dipahami dan dirawat, karena setiap method menangani satu tugas 
   spesifik.
 
-#### Struktur Tabel Aplikasi
----
+## Struktur Tabel Aplikasi
 ##### 1.Tabel Users (Menyimpan Data Admin dan User)
 Digunakan untuk menyimpan data username dan password yang dibutuhkan saat melakukan login pada admin.
 
@@ -153,13 +147,11 @@ Digunakan untuk menyimpan informasi pemesanan GOR yang dilakukan oleh user(pembo
 | status           | varchar(20)   | YES  |     | booking |                |
 
 
-#### Tampilan Aplikasi
----
+## Tampilan Aplikasi
 
 ![Deskripsi Gambar](https://i.imgur.com/dIozxrE.png)
 
 
-### Demo Proyek
----
+## Demo Proyek
 - Github: Github
 - Youtube: Youtube
