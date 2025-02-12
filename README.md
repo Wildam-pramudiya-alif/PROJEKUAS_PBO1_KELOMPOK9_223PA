@@ -148,8 +148,21 @@ Digunakan untuk menyimpan informasi pemesanan GOR yang dilakukan oleh user(pembo
 
 
 ## Tampilan Aplikasi
+##### Tampilan Awal
+![Deskripsi Gambar](https://i.imgur.com/479Fodp.png)
 
-![Deskripsi Gambar](https://i.imgur.com/dIozxrE.png)
+##### Tampilan Login Admin
+##### ![Deskripsi Gambar](https://i.imgur.com/Kjjs7dT.png)
+
+##### Tampilan Admin Dashboard
+![Deskripsi Gambar](https://i.imgur.com/rVUVsjb.png)
+
+##### Tampilan Login User
+![Deskripsi Gambar](https://i.imgur.com/abbUh3q.png)
+
+##### Tampilan Opsi Booking
+![Deskripsi Gambar](https://i.imgur.com/3jFqItt.png)
+
 
 
 ## Demo Proyek
