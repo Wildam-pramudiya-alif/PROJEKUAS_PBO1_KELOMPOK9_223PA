@@ -78,31 +78,16 @@ Setelah semua opsi sudah dipilih, maka si pembooking tinggal menekan tombol book
 #### 3. Polymorphism
 - ##### Definisi
 
-  Polimorfisme memungkinkan objek-objek dari kelas yang berbeda, namun memiliki hubungan pewarisan, untuk diperlakukan secara seragam sebagai objek dari kelas induk. Dengan 
-  cara ini, pemanggilan method pada objek tersebut akan mengeksekusi implementasi yang sesuai dengan tipe objek aktual (runtime).
-- ##### Penerapan pada Studi Kasus:
-  - ##### Penggunaan Referensi Tipe Dasar:
-  
-    Karena LoginFrame dan LoginFrameUser merupakan subclass dari BaseLoginFrame, maka dapat mendeklarasikan variabel dengan tipe JFrame atau BaseLoginFrame dan 
-    menginisialisasinya dengan objek dari salah satu kelas tersebut. Misalnya:
-   JFrame loginFrame;
-   if (userIsAdmin) {
-    loginFrame = new LoginFrame();
-   } else {
-    loginFrame = new LoginFrameUser();
-   }
-   loginFrame.setVisible(true);
-   Di sini, variabel loginFrame dapat menunjuk ke objek dari kelas yang berbeda, dan pemanggilan method seperti setVisible(true) tetap valid.
+  Polimorfisme adalah kemampuan suatu objek untuk memiliki banyak "bentuk" atau berperilaku berbeda tergantung pada konteksnya. Dalam Java, polimorfisme diwujudkan melalui dua cara utama:
 
+- ##### Penerapan pada Studi Kasus:
+  
   - ##### Method Overriding:
     Jika terdapat method yang di-override di masing-masing subclass (misalnya, jika BaseLoginFrame memiliki method abstrak initComponents()), maka ketika method tersebut 
     dipanggil melalui referensi tipe dasar, implementasi yang dieksekusi adalah yang ada di kelas aktual (LoginFrame atau LoginFrameUser).
 - ##### Fungsi
   ###### Fleksibilitas dalam Ekstensi:
-  Polimorfisme membuat sistem lebih fleksibel, karena dapat menambahkan kelas login baru di masa depan (misalnya, LoginFrameCustomer) dan memperlakukannya secara seragam 
-  melalui referensi ke tipe dasar, tanpa mengubah kode logika yang sudah ada.
-
-
+  Metode dengan nama dan daftar parameter yang sama di kelas anak (subclass) yang menimpa metode dari kelas induk (superclass).
 #### 4. Abstract
 - ##### Definisi
 
