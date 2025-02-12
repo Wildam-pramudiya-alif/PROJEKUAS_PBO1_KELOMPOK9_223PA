@@ -5,9 +5,9 @@
 - Kelompok: 9
 - Proyek: Aplikasi Booking Gor
 - Anggota:
-  - Ketua    : Luthfy Arief
+  - Ketua    : Wildam Pramudiya Alif  
   - Anggota 1: Fauzi Rikhshana
-  - Anggota 2: Wildam Pramudiya Alif 
+  - Anggota 2: Luthfy Arief
 ## Judul Studi Kasus
 Studi Kasus Pembuatan Aplikasi Booking GOR untuk Meningkatkan Efisiensi Pengelolaan GOR
 
