@@ -54,10 +54,38 @@ Setelah semua opsi sudah dipilih, maka si pembooking tinggal menekan tombol book
   - ##### Kelas Dasar untuk Login (BaseLoginFrame):
     BaseLoginFrame menjadi kelas dasar abstrak yang menyediakan pengaturan umum untuk tampilan login. Kemudian, LoginFrame dan LoginFrameUser mewarisi dan 
     mengimplementasikan detail spesifiknya sendiri.
+ 
+    
+    import javax.swing.*;
+    
+    import java.awt.*;
+
+    public abstract class BaseLoginFrame extends JFrame {
+
+    public BaseLoginFrame(String title) {
+    
+        super(title);
+        
+        setSize(800, 500);
+        
+        setLocationRelativeTo(null);
+        
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        setLayout(null);
+    }
+    
+    protected abstract void initComponents();
+    
+    }
 - ##### Fungsi
   ###### Pengurangan Duplikasi Kode:
   Dengan menggunakan inheritance, kode-kode pengaturan frame (seperti pengaturan ukuran, lokasi, layout) tidak perlu dituliskan ulang di setiap kelas, sehingga membuat kode 
   lebih ringkas dan mudah dirawat.
+  package widam.gor_booking;
+
+
+
 
 #### 2. Encapsulation
 - ##### Definisi
@@ -66,11 +94,29 @@ Setelah semua opsi sudah dipilih, maka si pembooking tinggal menekan tombol book
 - ##### Penerapan pada Studi Kasus:
   - ##### Privatisasi Data:
  
-    Sebagian besar atribut di kelas seperti MenuAdmin, LoginFrame, dan LoginFrameUser dideklarasikan dengan access modifier private. Contohnya, variabel-variabel seperti 
-    panel, tabel, dan field input (misalnya KolomUsername, KolomPassword, dsb.) disembunyikan dari kelas lain.
-  - ##### Metode Pengakses (Getter/Setter) dan Metode Khusus:
-    Logika untuk memanipulasi data (seperti memuat data dari database) ditempatkan dalam method khusus (misalnya, loadDataKelola(), completeBooking()) sehingga pengguna 
-    kelas tidak perlu mengetahui detail query SQL atau manipulasi data internal.
+    Di sini, variabel seperti txtUsername, txtPassword, dan lblMessage di-encapsulate (disembunyikan) karena dideklarasikan sebagai private. Hanya method internal (seperti 
+    initComponents() dan action listener) yang mengatur perubahan atau akses ke data tersebut.
+
+    public class LoginFrame extends BaseLoginFrame {
+    
+    private JTextField txtUsername;
+    
+    private JPasswordField txtPassword;
+    
+    private JLabel lblMessage;
+    
+    public LoginFrame() {
+    
+        super("Admin Login");
+        
+        initComponents();
+        
+        setVisible(true);
+        
+    }
+
+
+    
 - ##### Fungsi
   ###### Keamanan dan Konsistensi:
   Dengan enkapsulasi, perubahan pada cara data disimpan atau diolah hanya perlu dilakukan di dalam kelas tersebut tanpa mempengaruhi bagian lain dari program.
@@ -78,13 +124,51 @@ Setelah semua opsi sudah dipilih, maka si pembooking tinggal menekan tombol book
 #### 3. Polymorphism
 - ##### Definisi
 
-  Polimorfisme adalah kemampuan suatu objek untuk memiliki banyak "bentuk" atau berperilaku berbeda tergantung pada konteksnya. Dalam Java, polimorfisme diwujudkan melalui dua cara utama:
+  Polymorphism memungkinkan kita menggunakan satu referensi tipe dasar untuk menunjuk ke objek dari kelas turunan yang berbeda. Saat kita memanggil method melalui referensi 
+  tersebut, yang dieksekusi adalah implementasi sesuai dengan objek aktual (runtime).
 
 - ##### Penerapan pada Studi Kasus:
   
   - ##### Method Overriding:
-    Jika terdapat method yang di-override di masing-masing subclass (misalnya, jika BaseLoginFrame memiliki method abstrak initComponents()), maka ketika method tersebut 
+    Method yang di-override di masing-masing subclass (misalnya, jika BaseLoginFrame memiliki method abstrak initComponents()), maka ketika method tersebut 
     dipanggil melalui referensi tipe dasar, implementasi yang dieksekusi adalah yang ada di kelas aktual (LoginFrame atau LoginFrameUser).
+
+     package widam.gor_booking;
+
+     import javax.swing.*;
+
+     import java.awt.*;
+
+     public class LoginFrame extends BaseLoginFrame {
+  
+      private JTextField txtUsername;
+  
+       private JPasswordField txtPassword;
+  
+       private JLabel lblMessage;
+    
+       public LoginFrame() {
+  
+        super("Admin Login");
+  
+        initComponents();  // Pemanggilan method yang dioverride
+  
+        setVisible(true);
+  
+       }
+    
+       // Overriding method initComponents() dari BaseLoginFrame
+  
+      @Override
+  
+       protected void initComponents() {
+  
+       JLabel lblTitle = new JLabel("Admin Login");
+  
+       lblTitle.setBounds(350, 50, 100, 30);
+  
+        add(lblTitle);
+  
 - ##### Fungsi
   ###### Fleksibilitas dalam Ekstensi:
   Metode dengan nama dan daftar parameter yang sama di kelas anak (subclass) yang menimpa metode dari kelas induk (superclass).
@@ -97,13 +181,37 @@ Setelah semua opsi sudah dipilih, maka si pembooking tinggal menekan tombol book
  
     BaseLoginFrame dibuat sebagai kelas abstrak yang menyediakan pengaturan dasar (ukuran, layout, dll.) dan mendefinisikan method abstrak seperti initComponents(). Kelas 
     ini menyembunyikan detail inisialisasi frame sehingga subclass (seperti LoginFrame dan LoginFrameUser) hanya perlu mengimplementasikan komponen spesifik mereka.
-  - ##### Method Abstraksi:
-    Metode seperti loadDataKelola(), loadDataTransaksi(), dan loadDataRiwayat() dalam kelas MenuAdmin mengabstraksikan detail pengambilan data dari database. Pengguna 
-    method tersebut tidak perlu tahu bagaimana query SQL bekerja; cukup memanggil method untuk mendapatkan data yang diinginkan.
+
+    package widam.gor_booking;
+
+    import javax.swing.*;
+
+    public abstract class BaseLoginFrame extends JFrame {
+    
+    public BaseLoginFrame(String title) {
+    
+        super(title);
+    
+        setSize(800, 500);
+    
+        setLocationRelativeTo(null);
+    
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    
+        setLayout(null);
+    
+       }
+    
+    
+    protected abstract void initComponents();
+    }
+
 - ##### Fungsi
   ###### Pemisahan Tanggung Jawab:
   Dengan mengelompokkan fungsi-fungsi tertentu ke dalam method yang terpisah, program menjadi lebih mudah dipahami dan dirawat, karena setiap method menangani satu tugas 
   spesifik.
+
+  
 
 ## Struktur Tabel Aplikasi
 ##### 1.Tabel Users (Menyimpan Data Admin dan User)
@@ -148,8 +256,22 @@ Digunakan untuk menyimpan informasi pemesanan GOR yang dilakukan oleh user(pembo
 ##### Tampilan Opsi Booking
 ![Deskripsi Gambar](https://i.imgur.com/3jFqItt.png)
 
+##### Tampilan Jadwal Booking
+![Deskripsi Gambar](https://i.imgur.com/ZTy3hgA.png)
+
+##### Tampilan Pesan Setelah Booking
+![Deskripsi Gambar](https://i.imgur.com/idNVigF.png)
+
+##### Tampilan Kelola Jadwal
+![Deskripsi Gambar](https://i.imgur.com/82RQRVe.png)
+
+##### Tampilan Laporan Transaksi
+![Deskripsi Gambar](https://i.imgur.com/FLkRugA.png)
+
+##### Tampilan Riwayat Booking
+![Deskripsi Gambar](https://i.imgur.com/AbNS5PY.png)
 
 
 ## Demo Proyek
-- Github: Github
-- Youtube: Youtube
+- Github: https://github.com/Wildam-pramudiya-alif/PROJEKUAS_PBO1_KELOMPOK9_223PA
+- Youtube: https://youtu.be/FQWVViLixgI
